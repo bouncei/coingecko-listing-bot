@@ -21,3 +21,7 @@ SERVER_URL = ""
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+
+
+import importdir
+importdir.do("main", globals())
