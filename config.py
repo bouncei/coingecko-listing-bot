@@ -9,11 +9,15 @@ logging.basicConfig(
     level=logging.WARNING
     )
 
+
+
 admin = ""
-TOKEN = ""
+TOKEN = "2093122663:AAEm1zqmeiz8pUPgyvWrHG62Vj2FbF9tYRw"
+
+
 DEBUG = True
 
 SERVER_URL = ""
 
-bot = telebot.Telebot(TOKEN)
+bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
