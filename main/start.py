@@ -5,14 +5,15 @@ from config import *
 def starbot(msg):
     "Ignites the bot application to take action"
 
-    if msg.user_id != admin:
+    if msg.from_user.id != admin:
+       
         bot.reply_to(msg, "Unauthorized Userr!!")
 
     else:
 
         bot.reply_to(
             msg, 
-            f"This is a userBot customized for {msg.username} to recieve coin listing from coingecko API",
+            f"This is a userBot customized for {msg.from_user.username} to recieve coin listing from coingecko API",
             # reply_markup=menu(msg)
         )
 

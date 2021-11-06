@@ -11,7 +11,7 @@ logging.basicConfig(
 
 
 
-admin = ""
+admin = 1190069449
 TOKEN = "2093122663:AAEm1zqmeiz8pUPgyvWrHG62Vj2FbF9tYRw"
 
 

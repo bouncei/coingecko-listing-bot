@@ -1,6 +1,6 @@
 import requests 
 
 
-re = requests.get("")
+# re = requests.get("")
 
-data = re['']
+# data = re['']
