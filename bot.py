@@ -27,11 +27,11 @@ def webhook():
 
 
 if __name__ == "__main__":
-    # if DEBUG != True:
-    #     server.run(host="0.0.0.0", threaded=True, port=int(os.environ.get('PORT', 5000)))
-    # else:
-    #     # bot.remove_webhook()
-    #     print("Bot polling!")
-    #     bot.polling(none_stop=True)
-    print("Bot Polling!!!!!!")
-    bot.polling(non_stop=True)
+    if DEBUG != True:
+        server.run(host="0.0.0.0", threaded=True, port=int(os.environ.get('PORT', 5000)))
+    else:
+        bot.remove_webhook()
+        print("Bot polling!")
+        bot.polling(none_stop=True)
+    # print("Bot Polling!!!!!!")
+    # bot.polling(non_stop=True)
