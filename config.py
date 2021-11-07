@@ -2,7 +2,7 @@ from flask import Flask, request
 import telebot 
 import os
 
-# https://fathomless-cove-36805.herokuapp.com/ | https://git.heroku.com/fathomless-cove-36805.git
+# https://cryptic-beyond-34140.herokuapp.com/ | https://git.heroku.com/cryptic-beyond-34140.git
 
 
 # Logging Setup
@@ -20,7 +20,7 @@ TOKEN = "2093122663:AAEm1zqmeiz8pUPgyvWrHG62Vj2FbF9tYRw"
 
 DEBUG = True
 
-SERVER_URL = 'https://fathomless-cove-36805.herokuapp.com'
+SERVER_URL = 'https://cryptic-beyond-34140.herokuapp.com'
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
