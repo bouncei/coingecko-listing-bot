@@ -1,15 +1,4 @@
 from config import *
-# 
-# @bot.message_handler(commands=['start'])
-# def starbot(msg):
-#     "Ignites the bot application to take action"
-#     bot.reply_to(
-#         msg, 
-#         "Welcome Senior Man to my page.",
-#         # reply_markup=menu(msg)
-#     )
-
-
 
 
 @server.route('/' + TOKEN, methods=['POST', 'GET'])
