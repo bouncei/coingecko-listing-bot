@@ -1,6 +1,7 @@
 from flask import Flask, request
 import telebot 
 import os
+from dotenv import load_dotenv
 
 # https://sleepy-chamber-23428.herokuapp.com/ | https://git.heroku.com/sleepy-chamber-23428.git
 
@@ -14,8 +15,8 @@ logging.basicConfig(
 
 
 
-admin = 1190069449
-TOKEN = "2093122663:AAEm1zqmeiz8pUPgyvWrHG62Vj2FbF9tYRw"
+admin = os.getenv('ADMIN')
+TOKEN = os.getenv('TOKEN')
 
 
 DEBUG = True
