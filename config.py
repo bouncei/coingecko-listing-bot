@@ -3,6 +3,8 @@ import telebot
 import os
 from dotenv import load_dotenv
 
+
+load_dotenv()
 # https://sleepy-chamber-23428.herokuapp.com/ | https://git.heroku.com/sleepy-chamber-23428.git
 
 
