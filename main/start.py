@@ -5,7 +5,7 @@ from config import *
 def starbot(msg):
     "Ignites the bot application to take action"
 
-    if msg.from_user.id != admin:
+    if msg.from_user.id != ADMIN:
        
         bot.reply_to(msg, "Unauthorized Userr!!")
 

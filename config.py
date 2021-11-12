@@ -17,7 +17,7 @@ logging.basicConfig(
 
 
 
-admin = os.getenv('ADMIN')
+ADMIN = os.getenv('ADMIN')
 TOKEN = os.getenv('TOKEN')
 
 
