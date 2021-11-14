@@ -8,6 +8,8 @@ itsdangerous==2.0.1
 Jinja2==3.0.2
 MarkupSafe==2.0.1
 pyTelegramBotAPI==4.1.1
+python-dotenv==0.19.2
 requests==2.26.0
+schedule==1.1.0
 urllib3==1.26.7
 Werkzeug==2.0.2
