@@ -1,11 +1,5 @@
-import requests
-from requests.exceptions import RequestException, Timeout
-from requests.sessions import TooManyRedirects, session 
-from requests.adapters import HTTPAdapter
-from urllib3.util import Retry
-# from config import *
-import schedule
-import time
+from config import *
+
 
 Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
 coin_url = 'https://api.coingecko.com/api/v3/coins/list'
@@ -64,19 +58,25 @@ def get_coin(web, api):
     except (ConnectionError, Timeout, TooManyRedirects) as e: 
         print(e)
 
-    # print(recently_added)
-    # return recently_added
-                
+    bot.send_message(ADMIN, recently_added)
 
-# get_coin(Webpage_url, coin_url)
+    # print(recently_added)
+    return recently_added
+                
 
 
 
 schedule.every(10).seconds.do(get_coin, Webpage_url, coin_url)
 
-while True:
+while get_coin(Webpage_url,coin_url):
     schedule.run_pending()
-    time.sleep(2)
+    print(recently_added)
+    time.sleep(1)
+
+
+
+print(recently_added, old_name)
+
 
 
 

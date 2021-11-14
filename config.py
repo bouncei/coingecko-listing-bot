@@ -2,6 +2,13 @@ from flask import Flask, request
 import telebot 
 import os
 from dotenv import load_dotenv
+import requests
+from requests.exceptions import RequestException, Timeout
+from requests.sessions import TooManyRedirects, session 
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
+import schedule
+import time
 
 
 load_dotenv()
