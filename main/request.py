@@ -6,7 +6,7 @@ coin_url = 'https://api.coingecko.com/api/v3/coins/list'
 
 recently_added = ''
 # old_name = 'BabyFlokiZilla'
-old_name = 'DogeTheFloki'
+old_name = ''
 
 def get_coin(web, api):
     global recently_added
@@ -30,10 +30,10 @@ def get_coin(web, api):
         for line in Webpage_url_response.text.splitlines():
             if '<td class="py-0 coin-name" data-sort=' in line:
                 name = line[len('<td class="py-0 coin-name" data-sort=')+1:-2]
-                # print(f"This name of the coin is: {name}")   ## Displays the name of the new coin
-
+                
                 if name == old_name:
-                    print("Coingecko has not added a new coin yet")
+                    print("Coingecko has not added a anything yet")
+                    recently_added = ''
                     break
 
                 else:
@@ -43,7 +43,7 @@ def get_coin(web, api):
                             recently_added = coin_gecko_webpage + coin['id']
                             new_coin = requests.get("https://api.coingecko.com/api/v3/coins/" + coin['id']).json()
                             print(new_coin['name'], new_coin['id'], new_coin['symbol'])   ## Displays the details of the newly listed coin from coingecko in the command line
-                            print(recently_added)
+                            
 
 
                 print(f"The new name is {old_name}")
@@ -58,24 +58,27 @@ def get_coin(web, api):
     except (ConnectionError, Timeout, TooManyRedirects) as e: 
         print(e)
 
-    bot.send_message(ADMIN, recently_added)
 
     # print(recently_added)
     return recently_added
+
+
+
                 
 
 
+if get_coin(Webpage_url, coin_url):
+    schedule.every(10).seconds.do(get_coin, Webpage_url, coin_url)
+    c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
+    bot.send_message(ADMIN, c_message)
 
-schedule.every(10).seconds.do(get_coin, Webpage_url, coin_url)
-
-while get_coin(Webpage_url,coin_url):
-    schedule.run_pending()
-    print(recently_added)
-    time.sleep(1)
+    while True:       
+        schedule.run_pending()
+        time.sleep(1)
 
 
 
-print(recently_added, old_name)
+# print(recently_added, old_name)
 
 
 
