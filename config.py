@@ -28,7 +28,7 @@ ADMIN = os.getenv('ADMIN')
 TOKEN = os.getenv('TOKEN')
 
 
-DEBUG = False
+DEBUG = True
 
 SERVER_URL = 'https://sleepy-chamber-23428.herokuapp.com'
 
