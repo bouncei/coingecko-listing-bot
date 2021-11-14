@@ -68,7 +68,7 @@ def get_coin(web, api):
 
 
 if get_coin(Webpage_url, coin_url):
-    schedule.every(10).seconds.do(get_coin, Webpage_url, coin_url)
+    schedule.every(180).seconds.do(get_coin, Webpage_url, coin_url)
     c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
     bot.send_message(ADMIN, c_message)
 
