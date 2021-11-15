@@ -25,7 +25,6 @@ load_dotenv()
 
 # old_name = ''
 
-GROUP = -1001619147060
 
 
 
@@ -41,7 +40,9 @@ logging.basicConfig(
 ADMIN = os.getenv('ADMIN')
 TOKEN = os.getenv('TOKEN')
 
-admin = 1190069449
+GROUP = os.getenv('GROUP')
+
+# admin = 1190069449
 
 DEBUG = False
 
