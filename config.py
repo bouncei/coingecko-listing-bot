@@ -44,7 +44,7 @@ GROUP = os.getenv('GROUP')
 
 # admin = 1190069449
 
-DEBUG = False
+DEBUG = True
 
 SERVER_URL = 'https://sleepy-chamber-23428.herokuapp.com'
 
