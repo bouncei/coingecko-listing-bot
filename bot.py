@@ -1,9 +1,5 @@
 from config import *
 
-bot.send_message(
-    str(GROUP),
-    "Welcome boss"
-)
 
 
 @server.route('/' + TOKEN, methods=['POST', 'GET'])
@@ -26,6 +22,10 @@ if __name__ == "__main__":
     else:
         bot.remove_webhook()
         print("Bot polling!")
-        bot.polling(none_stop=True)
+        try:
+            bot.infinity_polling(timeout=10, long_polling_timeout = 5)
+        except Exception as e:
+            print(e)
+            time.sleep(10)
     # print("Bot Polling!!!!!!")
     # bot.polling(non_stop=True)

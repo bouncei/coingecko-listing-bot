@@ -16,14 +16,6 @@ import schedule
 load_dotenv()
 # https://sleepy-chamber-23428.herokuapp.com/ | https://git.heroku.com/sleepy-chamber-23428.git
 
-# Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
-# coin_url = 'https://api.coingecko.com/api/v3/coins/list'
-
-# recently_added = ''
-
-
-
-# old_name = ''
 
 
 
@@ -40,11 +32,11 @@ logging.basicConfig(
 ADMIN = os.getenv('ADMIN')
 TOKEN = os.getenv('TOKEN')
 
-GROUP = os.getenv('GROUP')
+# GROUP = os.getenv('GROUP')
 
-# admin = 1190069449
+admin = 1190069449
 
-DEBUG = True
+DEBUG = False
 
 SERVER_URL = 'https://sleepy-chamber-23428.herokuapp.com'
 
