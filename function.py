@@ -1,11 +1,13 @@
 from config import *
-
+# from models import CoinDetails
 
 Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
 coin_url = 'https://api.coingecko.com/api/v3/coins/list'
 
 recently_added = ''
-# old_name = 'BabyFlokiZilla'
+
+
+
 old_name = ''
 
 def get_coin(web, api):
@@ -22,6 +24,7 @@ def get_coin(web, api):
 
         Webpage_url_response = session.get(web)
         coin_url_response = session.get(api, timeout=request_timeout).json() 
+        time.sleep(10)
 
         coin_gecko_webpage = "https://www.coingecko.com/en/coins/" 
 
@@ -61,31 +64,5 @@ def get_coin(web, api):
 
     # print(recently_added)
     return recently_added
-
-
-
-                
-
-
-if get_coin(Webpage_url, coin_url):
-    schedule.every(180).seconds.do(get_coin, Webpage_url, coin_url)
-    c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
-    bot.send_message(ADMIN, c_message)
-
-    while True:       
-        schedule.run_pending()
-        time.sleep(1)
-
-
-
-# print(recently_added, old_name)
-
-
-
-
-# @bot.message_handler
-
-
-
 
 

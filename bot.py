@@ -1,5 +1,10 @@
 from config import *
 
+bot.send_message(
+    str(GROUP),
+    "Welcome boss"
+)
+
 
 @server.route('/' + TOKEN, methods=['POST', 'GET'])
 def checkWebhook():
