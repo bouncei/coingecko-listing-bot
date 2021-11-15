@@ -8,7 +8,7 @@ from requests.exceptions import RequestException, Timeout
 from requests.sessions import TooManyRedirects, session 
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
-from apscheduler.schedulers.blocking import BlockingScheduler
+
 import time
 import schedule
 
