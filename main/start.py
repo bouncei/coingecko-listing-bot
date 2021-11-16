@@ -1,8 +1,8 @@
 from config import *
 
 
-Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
-coin_url = 'https://api.coingecko.com/api/v3/coins/list'
+# Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
+# coin_url = 'https://api.coingecko.com/api/v3/coins/list'
 
 
 recently_added = ''
@@ -10,10 +10,20 @@ old_name = ''
 
 scheduler = BlockingScheduler()
 
-
-def get_coin(web, api):
+@scheduler.scheduled_job("interval", minutes=2)
+def get_coin():
     global recently_added
     global old_name
+    Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
+    coin_url = 'https://api.coingecko.com/api/v3/coins/list'
+
+
+
+
+    web = Webpage_url
+    api = coin_url
+
+
 
     request_timeout = 120
 
@@ -64,6 +74,15 @@ def get_coin(web, api):
 
     print(recently_added)
 
+    if recently_added != '':
+        c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
+        bot.send_message(str(ADMIN), c_message)
+    
+    else:
+        print("no new coin boss")
+        pass
+
+
    
     return recently_added
 
@@ -71,25 +90,6 @@ def get_coin(web, api):
 
 
 
-# while get_coin(Webpage_url, coin_url):
-#     # item = get_coin(Webpage_url, coin_url)
-#     schedule.every(120).seconds.do(get_coin, Webpage_url, coin_url)
-#     c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
-#     bot.send_message(str(ADMIN), c_message)
-
-#     while True:       
-#         schedule.run_pending()
-#         time.sleep(1)
-
-@scheduler.scheduled_job("interval", minutes=2)
-def send_new_message():
-    if get_coin(Webpage_url, coin_url) == True:
-        c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
-        bot.send_message(str(ADMIN), c_message)
-
-
-    else:
-        bot.send_message(str(ADMIN), "No coin yet boss")
 
 
 
