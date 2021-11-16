@@ -8,6 +8,7 @@ from requests.exceptions import RequestException, Timeout
 from requests.sessions import TooManyRedirects, session 
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 import time
 import schedule
@@ -36,7 +37,7 @@ TOKEN = os.getenv('TOKEN')
 
 admin = 1190069449
 
-DEBUG = False
+DEBUG = True
 
 SERVER_URL = 'https://sleepy-chamber-23428.herokuapp.com'
 
