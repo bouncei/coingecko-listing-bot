@@ -11,7 +11,7 @@ from urllib3.util import Retry
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 import time
-import schedule
+
 
 
 load_dotenv()
