@@ -33,12 +33,12 @@ logging.basicConfig(
 TOKEN = os.getenv('TOKEN')
 ADMIN = os.getenv('ADMIN')
 
-print(type(TOKEN))
+
 # GROUP = os.getenv('GROUP')
 
 # admin = 1190069449
 
-DEBUG = False
+DEBUG = True
 
 SERVER_URL = os.getenv("SERVER_URL")
 
