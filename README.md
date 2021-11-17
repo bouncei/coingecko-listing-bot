@@ -31,7 +31,7 @@ To use this application as your own, follow these simple steps;
     - `WEBHOOK_URL` - Pre-defined web hook to be used for the app
 
   - Goto `config.py` and set `DEBUG` to "True" to run locally and "False" to run in production
-
+   
   - Run the entrypoint file `python bot.py`
 
 Enjoy!

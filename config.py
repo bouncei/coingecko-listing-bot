@@ -33,13 +33,14 @@ logging.basicConfig(
 TOKEN = os.getenv('TOKEN')
 ADMIN = os.getenv('ADMIN')
 
+print(type(TOKEN))
 # GROUP = os.getenv('GROUP')
 
 # admin = 1190069449
 
 DEBUG = False
 
-SERVER_URL = 'https://sleepy-chamber-23428.herokuapp.com'
+SERVER_URL = os.getenv("SERVER_URL")
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
