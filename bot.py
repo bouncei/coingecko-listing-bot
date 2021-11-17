@@ -11,7 +11,7 @@ def checkWebhook():
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url=SERVER_URL + '/' + TOKEN)
-    return "Application running!", 200
+    return "<h1>Application Running</h1>", 200
 
 
 

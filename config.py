@@ -30,8 +30,8 @@ logging.basicConfig(
 
 
 
-ADMIN = os.getenv('ADMIN')
 TOKEN = os.getenv('TOKEN')
+ADMIN = os.getenv('ADMIN')
 
 # GROUP = os.getenv('GROUP')
 
