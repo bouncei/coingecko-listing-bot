@@ -40,7 +40,7 @@ ADMIN = os.getenv('ADMIN')
 
 DEBUG = False
 
-SERVER_URL = os.getenv("SERVER_URL")
+SERVER_URL = "https://thawing-tundra-49172.herokuapp.com"
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
