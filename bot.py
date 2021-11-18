@@ -1,5 +1,8 @@
 from config import *
 
+@bot.message_handler(commands=['start'])
+def start(msg):
+    bot.reply_to(msg, "welcome senior man")
 
 
 @server.route('/' + TOKEN, methods=['POST', 'GET'])
@@ -11,7 +14,7 @@ def checkWebhook():
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url=SERVER_URL + '/' + TOKEN)
-    return "<h1>Application Running</h1>", 200
+    return "Application Running", 200
 
 
 
