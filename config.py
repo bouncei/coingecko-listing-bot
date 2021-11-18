@@ -38,7 +38,7 @@ ADMIN = os.getenv('ADMIN')
 
 # admin = 1190069449
 
-DEBUG = True
+DEBUG = False
 
 SERVER_URL = os.getenv("SERVER_URL")
 
