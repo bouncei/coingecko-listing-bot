@@ -1,5 +1,8 @@
 from config import *
 
+@bot.message_handler(commands=['start'])
+def start(msg):
+    bot.reply_to(msg, "welcome senior man")
 
 # Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
 # coin_url = 'https://api.coingecko.com/api/v3/coins/list'
