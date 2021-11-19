@@ -80,7 +80,7 @@ def get_coin():
 
     if recently_added != '':
         c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
-        bot.send_message(str(GROUP), c_message)
+        bot.send_message(str(ADMIN), c_message)
     
     else:
         print("no new coin boss")
