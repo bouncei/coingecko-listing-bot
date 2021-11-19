@@ -34,7 +34,7 @@ TOKEN = os.getenv('TOKEN')
 ADMIN = os.getenv('ADMIN')
 
 
-# GROUP = os.getenv('GROUP')
+GROUP = os.getenv('GROUP')
 
 # admin = 1190069449
 
