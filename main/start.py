@@ -6,6 +6,20 @@ from config import *
 recently_added = ''
 old_name = ''
 
+def menu(address):
+    """ Redirects User to poocoin chart"""
+
+    keyboard = types.InlineKeyboardMarkup()
+    a = types.InlineKeyboardButton(text="POOCOIN", url="https://poocoin.app/tokens/" + address)
+    b = types.InlineKeyboardButton(text="POOCOIN", url="https://bscscan.com/tokens/" + address)
+      
+
+    keyboard.row(a,b)
+
+    return keyboard
+
+
+
 def get_address(name):
     """Gets The contact address of the recently added coin """
     request_timeout = 120
@@ -107,25 +121,30 @@ def get_coin():
     print(recently_added)
 
     if recently_added != '':
-        c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
         contract_address = get_address(coin_id)
         right_now = datetime.time(datetime.now())
         formatted_time = str(right_now)[:8]
 
-        # bot.send_message(str(GROUP), c_message)
+        
 
         bot.send_message(
             str(GROUP),
             f"""
-🟢[{coin_id}] {old_name}
+🟢[{old_name}] {coin_id}
 
-Coin name:  {old_name}
-Address:    {contract_address}
-Platform:   <em> Pending bros.... </em>
-Time:       {formatted_time} UTC
+<b>Coin name: </b>  <a>{old_name}</a>
+<b>Address: </b>      {contract_address}
+
+<b>Time:   </b>         {formatted_time} UTC
+
+
+
 
             """,
-            parse_mode="html"
+
+            parse_mode="html",
+            reply_markup=menu(contract_address) 
+            
         )
     
     else:
