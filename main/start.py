@@ -2,11 +2,38 @@ from config import *
 
 
 
-# Webpage_url = "https://www.coingecko.com/it/monete/recently_added"
-# coin_url = 'https://api.coingecko.com/api/v3/coins/list'
 
 recently_added = ''
 old_name = ''
+
+def get_address(name):
+    """Gets The contact address of the recently added coin """
+    request_timeout = 120
+
+    session = requests.session()
+    retries = Retry(total=5, backoff_factor=0.5, status_forcelist=[502, 503, 504])
+    session.mount('http://', HTTPAdapter(max_retries=retries))
+    
+    try:
+        page_response = session.get(f"https://www.coingecko.com/en/coins/{name}")
+
+        for line in page_response.text.splitlines():
+            if '<i data-address="0' in line:
+                address = line[len('<i data-address=')+1: len('<i data-address=')+43]
+                print("The contact address is: ", address)
+                
+
+            else:
+                pass
+
+        
+
+
+    except (ConnectionError, Timeout, TooManyRedirects) as e: 
+        print(e)
+
+    return address
+    
 
 
 scheduler = BlockingScheduler()
@@ -58,6 +85,7 @@ def get_coin():
                     print(f"The new name is {old_name}")
                     for coin in coin_url_response:
                         if coin['name'] == name:
+                            coin_id = coin['id']               ## Gets coin id
                             recently_added = coin_gecko_webpage + coin['id']
                             new_coin = requests.get("https://api.coingecko.com/api/v3/coins/" + coin['id']).json()
                             print(new_coin['name'], new_coin['id'], new_coin['symbol'])   ## Displays the details of the newly listed coin from coingecko in the command line
@@ -80,7 +108,25 @@ def get_coin():
 
     if recently_added != '':
         c_message = f"{old_name} has just been added to CoinGecko. {recently_added}"
-        bot.send_message(str(GROUP), c_message)
+        contract_address = get_address(coin_id)
+        right_now = datetime.time(datetime.now())
+        formatted_time = str(right_now)[:8]
+
+        # bot.send_message(str(GROUP), c_message)
+
+        bot.send_message(
+            str(GROUP),
+            f"""
+🟢[{coin_id}] {old_name}
+
+Coin name:  {old_name}
+Address:    {contract_address}
+Platform:   <em> Pending bros.... </em>
+Time:       {formatted_time} UTC
+
+            """,
+            parse_mode="html"
+        )
     
     else:
         print("no new coin boss")

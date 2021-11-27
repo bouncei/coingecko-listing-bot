@@ -1,8 +1,8 @@
 from config import *
 
-@bot.message_handler(commands=['start'])
-def start(msg):
-    bot.reply_to(msg, "Welcome!")
+# @bot.message_handler(commands=['start'])
+# def start(msg):
+#     bot.reply_to(msg, "Welcome!")
 
 
 @server.route('/' + TOKEN, methods=['POST', 'GET'])

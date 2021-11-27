@@ -9,6 +9,7 @@ from requests.sessions import TooManyRedirects, session
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
 from apscheduler.schedulers.blocking import BlockingScheduler
+from datetime import datetime
 
 import time
 
@@ -38,7 +39,7 @@ GROUP = os.getenv('GROUP')
 
 # admin = 1190069449
 
-DEBUG = False
+DEBUG = True
 
 SERVER_URL = "https://thawing-tundra-49172.herokuapp.com"
 
