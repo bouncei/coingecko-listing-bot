@@ -121,7 +121,7 @@ def get_coin():
     print(recently_added)
 
     if recently_added != '':
-        contract_address = get_address(coin_id)
+        contract_address = str(get_address(coin_id))
         right_now = datetime.time(datetime.now())
         formatted_time = str(right_now)[:8]
 
