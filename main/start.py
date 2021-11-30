@@ -11,7 +11,7 @@ def menu(address):
 
     keyboard = types.InlineKeyboardMarkup()
     a = types.InlineKeyboardButton(text="POOCOIN", url="https://poocoin.app/tokens/" + address)
-    b = types.InlineKeyboardButton(text="POOCOIN", url="https://bscscan.com/tokens/" + address)
+    b = types.InlineKeyboardButton(text="BSCSCAN", url="https://bscscan.com/tokens/" + address)
       
 
     keyboard.row(a,b)
