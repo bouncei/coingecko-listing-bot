@@ -10,8 +10,8 @@ def menu(address):
     """ Redirects User to poocoin chart"""
 
     keyboard = types.InlineKeyboardMarkup()
-    a = types.InlineKeyboardButton(text="POOCOIN", url="https://poocoin.app/tokens/" + address)
-    b = types.InlineKeyboardButton(text="BSCSCAN", url="https://bscscan.com/tokens/" + address)
+    a = types.InlineKeyboardButton(text="POOCOIN", url=f"https://poocoin.app/tokens/{address}")
+    b = types.InlineKeyboardButton(text="BSCSCAN", url=f"https://bscscan.com/tokens/{address}")
       
 
     keyboard.row(a,b)
